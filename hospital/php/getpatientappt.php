@@ -12,7 +12,6 @@
 		$result = array();
 		
 		while($r = mysqli_fetch_array($get_data_query)){
-			//know what this does
 			extract($r);
 			//correct this to correct values
 			$result[] = array("ApptID" => $ApptID, "DoctorID" => $DoctorID, 'PatientID' => $PatientID);

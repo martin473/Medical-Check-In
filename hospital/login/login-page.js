@@ -1,9 +1,13 @@
 const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
 const loginErrorMsg = document.getElementById("login-error-msg");
+const vanillaUrl = "localhost:8081/hospital/php/addapt.php";
 const getUrl = "localhost:8081/hospital/php/addapt.php?ApptID=2&DoctorID=2&PatientID=2";
 
-$(document).ready(function(){
+
+
+
+/*$(document).ready(function(){
   $loginButton.click(function(){
     $.post(getUrl,
     {
@@ -15,7 +19,7 @@ $(document).ready(function(){
       alert("Data: " + data + "\nStatus: " + status);
     });
   });
-});
+});*/
 
 /*loginButton.addEventListener('click', makeRequest);
 var httpRequest;
@@ -55,15 +59,28 @@ function alertContents() {
     }
 }*/
 
-/*loginButton.addEventListener("click", (e) => {
+loginButton.addEventListener("click", (e) => {
     e.preventDefault();
     const username = loginForm.username.value;
     const password = loginForm.password.value;
     if (username === "user" && password === "1") {
-        alert("You have successfully logged in.");
+        /*$.post( vanillaUrl, { ApptID: "2", DoctorID: "2", PatientID: "2" } )
+        .done(function( data ) {
+            alert( "Data Loaded: " + data );
+        };*/
+        //alert("You have successfully logged in.");
+        $.ajax({
+            method: "POST",
+            url: vanillaUrl,
+            data: { ApptID: "2", DoctorID: "2", PatientID: "2" },
+            error: function(xhr, status, error) {
+                alert(xhr.responseText);
+            }
+        });
+
         location.reload();
     } else {
         loginErrorMsg.style.opacity = 1;
     }
-}*/
+}
 )

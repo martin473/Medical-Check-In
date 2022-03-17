@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$DoctorID = isset($_POST['DoctorID']) ? mysqli_real_escape_string($conn, $_POST['DoctorID']) : "";
 
 	// Insert data into database
-	$sql = "INSERT INTO appointment (`ApptID`, `PatientID`, `DoctorID`) VALUES ('$ApptID', '$DoctorID', '$DoctorID');";
+	$sql = "INSERT INTO appointment (`ApptID`, `PatientID`, `DoctorID`) VALUES ('$ApptID', '$DoctorID', '$PatientID');";
 	$post_data_query = mysqli_query($conn, $sql);
 	if($post_data_query){
 		$json = array("status" => 1, "Success" => "Appointment added.");
