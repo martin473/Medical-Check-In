@@ -12,17 +12,17 @@
 <img src = "OK.png" style="width:200px;height: 200px;">
 <body>
   <main id="main-holder">
-    <h1 id="login-header">RIC HOSPITAL</h1>
+    <h1 id="login-header">HOSPITAL</h1>
     <div id="login-error-msg-holder">
       <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
     </div>
 
-    <form id="login-form">
+    <form id="login-form" onsubmit="return false">
       <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
       <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
       <div>
         <label for="AT">ACCOUNT TYPE:</label>
-        <select style="font-size:14px;">
+        <select name="table" style="font-size:14px;">
           <option value="admin">ADMIN</option>
           <option value="doctor">DOCTOR</option>
           <option value="patient">PATIENT</option>

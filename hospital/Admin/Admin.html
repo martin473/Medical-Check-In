@@ -5,10 +5,9 @@
 	<title>User Table UI Design</title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" type="text/css">
-	<script src="../jquery-3.6.0.min.js"></script>
-	<script defer src="doctorpage.js"></script>
-	
 	<link rel="stylesheet">
+	<script src="../jquery-3.6.0.min.js"></script>
+	<script defer src="adminpage.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<style>
 	ul {
@@ -39,13 +38,14 @@
 <ul>
 	<li><a href="#Your Profile">Your Profile</a></li>
 	<li><a href="#Appointments">Appointments</a></li>
+	<li><a href="#Doctors">Doctors</a></li>
 	<li><a href="#Patients">Patients</a></li>
 </ul>
 </head>
 <body style="background-color: #F6F8FB;">
 	<section class="main-content">
-		<div id = "appDiv" class="container"align="center">
-			<h1 style ="font-size:40px; margin-right: 850px; padding bottom: 2000px;">Your Appointments</h1>
+		<div class="container"align="center">
+			<h1 style ="font-size:40px; margin-right: 880px; padding bottom: 2000px;">All Appointments</h1>
 			<br>
 			<br>
 
@@ -58,16 +58,16 @@
 						<th>Email</th>
 						<th>Date</th>
 						<th>Visit Time</th>
-						<th>Medication</th>
-						<th>Medication History</th>
+						<th>Doctor</th>
 						<th>Conditions</th>
 						<th>Manage Appointments</th>
 					</tr>
 				</thead>
-				<tbody id="appData"> 
+				<tbody id = "appData">
 					<tr style="background-color:#fff;color:#52575C;">
-						<td>
-							No Appointments Found.
+						<td> No Appointments Found.
+				
+								
 						</td>
 						<td>
 							<h5 class="email"></h5>
@@ -85,7 +85,7 @@
 							<h5 class="mb-0"></h5>
 						</td>
 						<td>
-					
+							
 						</td>
 					</tr>
 

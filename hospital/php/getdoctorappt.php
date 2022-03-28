@@ -2,19 +2,34 @@
 	//include correct config
 	include_once('dbhmsconfig.php');
 	//get data from query
-	$DID = isset($_GET['DoctorID']) ? mysqli_real_escape_string($conn, $_GET['DoctorID']) :  "";
+	$DID = isset($_POST['DoctorID']) ? mysqli_real_escape_string($conn, $_POST['DoctorID']) :  "";
 	//select from appointment all appointments matching the input doctor ID
-	$sql = "SELECT * FROM appointment WHERE PatientID='{$DID}';";
+	$sql = "select appointment.id,PatientID, Date, VisitTime, FirstName, MiddleName, LastName,";
+	$sql = $sql . "Email, Gender, MedicationHistory, Conditions, Medication from appointment, patient where appointment.PatientID = patient.id";
+	$sql = $sql . " and DoctorID='".$DID."';";
 	$get_data_query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-	echo json_encode($conn);
+	
 
 	if(mysqli_num_rows($get_data_query)!=0){
 		$result = array();
 		
 		while($r = mysqli_fetch_array($get_data_query)){
 			extract($r);
-			//correct this to correct values
-			$result[] = array("ApptID" => $ApptID, "DoctorID" => $DoctorID, 'PatientID' => $PatientID);
+			
+			$appointment = array("ApptID" => $r["id"], 
+			'Date' => $r["Date"],
+			'Visit Time' => $r["VisitTime"],
+			'First Name' => $r["FirstName"],
+			'Last Name' => $r["LastName"],
+			'Middle Name' => $r["MiddleName"],
+			'Medication History' => $r["MedicationHistory"], 
+			'Medication' => $r["Medication"],
+			'Gender'=>$r["Gender"],
+			'Email'=>$r["Email"],
+			'Conditions' => $r["Conditions"]);
+			
+			array_push($result,$appointment);
+			
 		}
 		$json = array("status" => 1, "info" => $result);
 	}
