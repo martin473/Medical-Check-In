@@ -4,12 +4,16 @@ include_once('dbhmsconfig.php');
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 	
 	// Get data from the REST client
-	$ApptID = isset($_POST['ApptID']) ? mysqli_real_escape_string($conn, $_POST['ApptID']) : "";
-	$PatientID = isset($_POST['PatientID']) ? mysqli_real_escape_string($conn, $_POST['PatientID']) : "";
-	$DoctorID = isset($_POST['DoctorID']) ? mysqli_real_escape_string($conn, $_POST['DoctorID']) : "";
+	
+	$PatientID = isset($_POST['PATIENTID']) ? mysqli_real_escape_string($conn, $_POST['PATIENTID']) : "";
+	$DoctorID = isset($_POST['DOCTORID']) ? mysqli_real_escape_string($conn, $_POST['DOCTORID']) : "";
+	$Date = isset($_POST['DATE']) ? mysqli_real_escape_string($conn, $_POST['DATE']) : "";
+	$VisitTime = isset($_POST['VISITTIME']) ? mysqli_real_escape_string($conn, $_POST['VISITTIME']) : "";
+	$Status = isset($_POST['STATUS']) ? mysqli_real_escape_string($conn, $_POST['STATUS']) : "";
 
 	// Insert data into database
-	$sql = "INSERT INTO appointment (`ApptID`, `PatientID`, `DoctorID`) VALUES ('$ApptID', '$DoctorID', '$PatientID');";
+	$sql = "INSERT INTO appointment (Date, PatientID, DoctorID, VisitTime, Status) VALUES ('$Date', '$PatientID', '$DoctorID','$VisitTime','$Status');";
+	$json = array("status" => 0, "Error" => "$sql");
 	$post_data_query = mysqli_query($conn, $sql);
 	if($post_data_query){
 		$json = array("status" => 1, "Success" => "Appointment added.");

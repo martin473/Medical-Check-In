@@ -4,8 +4,9 @@
 	//select from appointment all appointments matching the input doctor ID
 	$sql = "select appointment.id,PatientID, Date, VisitTime, patient.FirstName as 'pFirstName', patient.MiddleName as 'pMiddleName', patient.LastName as 'pLastName' ,";
 	$sql = $sql . "doctor.FirstName as 'dFirstName', doctor.MiddleName  as 'dMiddleName', doctor.LastName as 'dLastName',";
-	$sql = $sql . "patient.Email, patient.Gender, MedicationHistory, Conditions, Medication from appointment, patient, doctor ";
+	$sql = $sql . "patient.Email, Status, patient.Gender, MedicationHistory, Conditions, Medication from appointment, patient, doctor ";
 	$sql = $sql . "where appointment.PatientID = patient.id and appointment.DoctorID=doctor.id";
+
 	$get_data_query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 	
 
@@ -28,7 +29,7 @@
 			'dMiddle Name' => $r["dMiddleName"],
 			
 			
-			
+			'Status'=>$r["Status"],
 			'Email'=>$r["Email"],
 			'Conditions' => $r["Conditions"]);
 			

@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css">
 	<link rel="stylesheet">
 	<script src="../jquery-3.6.0.min.js"></script>
-	<script defer src="adminpage.js"></script>
+	<script defer src="adminadmin.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<style>
 	ul {
@@ -40,36 +40,33 @@
 	<li><a href="Admin.html">Appointments</a></li>
 	<li><a href="Admin-DoctorV.html">Doctors</a></li>
 	<li><a href="Admin-PatientV.html">Patients</a></li>
-	<li><a href="Admin-AdminV.html">Admins</a></li>
+    <li><a href="Admin-AdminV.html">Admins</a></li>
 </ul>
 </head>
 <body style="background-color: #F6F8FB;">
 	<section class="main-content">
 		<div class="container"align="center">
-			<h1 style ="font-size:40px; margin-right: 880px; padding bottom: 2000px;">All Appointments</h1>
+			<h1 style ="font-size:40px; margin-right: 880px; padding bottom: 2000px;">All Admins</h1>
 			<br>
 			<br>
-			<button name = "CreateAppointment" value="Create an Appointment" id="CreateAppointment" onclick="CreateAppointment()">
-				Add an Appointment</button>
-
+			<button name = "CreateAdmin" value="Create a Admin" id="CreateAdmin" onclick="CreateAdmin()">
+				Add Admin</button>
 			<table class="table" style="background-color:#FAFAFA;width:80% " align="center" border="0">
+
 
 				<thead style="text-align: left">
 					<tr>
 						<th>Name</th>
-						<th>Gender</th>
 						<th>Email</th>
-						<th>Date</th>
-						<th>Visit Time</th>
-						<th>Doctor</th>
-						<th>Conditions</th>
-						<th>Appointment Notes</th>
-						<th>Manage Appointments</th>
+						<th>DOB</th>
+						<th>Gender</th>
+                        <th>Address</th>
+						<th>Manage Admins</th>
 					</tr>
 				</thead>
 				<tbody id = "appData">
 					<tr style="background-color:#fff;color:#52575C;">
-						<td> No Appointments Found.
+						<td> No Admins Found.
 				
 								
 						</td>

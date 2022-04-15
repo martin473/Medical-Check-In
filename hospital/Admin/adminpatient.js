@@ -1,4 +1,4 @@
-console.log("getadmin");
+console.log("adminPaitent");
 function FormatData(mydata){
   if(mydata==null) {
     return;
@@ -10,18 +10,16 @@ function FormatData(mydata){
   for (var i = 0; i < arrayLength; i++) {
     console.log(mydata["info"][i]);
     outputhtml += "<tr>";
-    outputhtml += "<td>" + mydata["info"][i]["pFirst Name"] + " " + mydata["info"][i]["pMiddle Name"] + " " + mydata["info"][i]["pLast Name"] + "</td>";
-    outputhtml += "<td>" + mydata["info"][i]["Gender"] + "</td>";
+    outputhtml += "<td>" + mydata["info"][i]["First Name"] + " " + mydata["info"][i]["Middle Name"] + " " + mydata["info"][i]["Last Name"] + "</td>";
     outputhtml += "<td>" + mydata["info"][i]["Email"] + "</td>";
-    outputhtml += "<td>" + mydata["info"][i]["Date"] + "</td>";
-    outputhtml += "<td>" + mydata["info"][i]["Visit Time"] + "</td>";
-    outputhtml += "<td>" + mydata["info"][i]["dFirst Name"] + " " + mydata["info"][i]["dMiddle Name"] + " " + mydata["info"][i]["dLast Name"] + "</td>";
-    outputhtml += "<td>" + mydata["info"][i]["Conditions"] + "</td>";
-    outputhtml += "<td>" + mydata["info"][i]["Status"] + "</td>";
+    outputhtml += "<td>" + mydata["info"][i]["DOB"] + "</td>";
+    outputhtml += "<td>" + mydata["info"][i]["Gender"] + "</td>";
+    outputhtml += "<td>" + mydata["info"][i]["Address"] + "</td>";
+    
 
     
 
-    outputhtml += "<td>" + "<button type='button' onclick='DeleteAdminapp(" + mydata["info"][i]["ApptID"] + ")'>Delete Appointment</button>" + "</td>";
+    outputhtml += "<td>" + "<button type='button' onclick='deletepatient(" + mydata["info"][i]["ID"] + ")'>Delete Patient</button>" + "</td>";
     outputhtml += "</tr>";
   }
   outputhtml += "</table>";
@@ -31,13 +29,13 @@ function FormatData(mydata){
   appData.innerHTML=outputhtml;
 }
 
-function getAdminapp() {
+function getPatient() {
 
   
         $.ajax({
             type: "POST",
             dataType: "JSON",
-            url: "../php/getadminappt.php",
+            url: "../php/getallpatients.php",
             error: function(xhr, status, error) {
               alert(xhr.responseText);
             },
@@ -48,16 +46,16 @@ function getAdminapp() {
             }
         });
     }
-    getAdminapp();
+    getPatient();
 
-    function DeleteAdminapp(ApptID) {
+    function deletepatient(PatientID) {
       //alert(ApptID);
             $.ajax({
                 type: "POST",
                 dataType: "JSON",
-                url: "../php/deleteadminapp.php",
+                url: "../php/deletepatient.php",
                 data: {
-                  "ApptID": ApptID
+                  "PatientID": PatientID
                 },
                 error: function(xhr, status, error) {
                   alert(xhr.responseText);
@@ -69,6 +67,6 @@ function getAdminapp() {
                 }
             });
         }
-        function CreateAppointment(){
-          location.href="Create-Appointment.html";
+        function CreatePatient(){
+          location.href="Create-Patient.html";
         }

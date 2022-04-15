@@ -5,8 +5,17 @@ body {
 }
 
 .main-content {
-	padding-top: 100px;
+	
+	
+	margin: auto;
 	padding-bottom: 100px;
+}
+.main-admin-profile{
+	border: 10px;
+	border-color:#2148C0 ;
+	border-style: solid;
+	width: 75% ;
+	margin: auto;
 }
 
 .table {
