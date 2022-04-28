@@ -1,0 +1,44 @@
+<?php
+    //This gets all patients for admin view
+    
+	//include correct config
+	include_once('dbhmsconfig.php');
+	$PID = isset($_POST['PATIENTID']) ? mysqli_real_escape_string($conn, $_POST['PATIENTID']) :  "";
+	$sql = "select * from patient WHERE patient.id = $PID;";
+	$get_data_query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+	
+
+	if(mysqli_num_rows($get_data_query)!=0){
+		$result = array();
+		
+		while($r = mysqli_fetch_array($get_data_query)){
+			extract($r);
+			
+			$appointment = array("ID" => $r["id"], 
+			'FirstName' => $r["FirstName"],
+			'MiddleName' => $r["MiddleName"],
+			'LastName' => $r["LastName"],
+			'DOB' => $r["DOB"],
+			'Gender' => $r["Gender"],
+			'Address'=>$r["Address"],
+
+			'Email' => $r["Email"],
+			'Password' => $r["Password"],
+			'MedicationHistory' => $r["MedicationHistory"],
+			
+			'Medication' => $r["Medication"],
+            'Conditions' => $r["Conditions"]);
+			
+			array_push($result,$appointment);
+			
+		}
+		$json = array("status" => 1, "info" => $result);
+	}
+	else{
+		$json = array("status" => 0, "error" => "Patient not found!", "Patient" => $PID);
+	}
+@mysqli_close($conn);
+
+// Set Content-type to JSON
+header('Content-type: application/json');
+echo json_encode($json);
