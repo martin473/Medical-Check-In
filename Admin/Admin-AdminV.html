@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>User Table UI Design</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css">
+	<link rel="stylesheet">
+	<script src="../jquery-3.6.0.min.js"></script>
+	<script defer src="adminadmin.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+	ul {
+		list-style-type: none; width: 100%;
+
+	  margin-left: 0px;
+	  padding: 0;
+		overflow: auto;
+	  background-color: #F6F8FB
+
+	}
+	li {float: left;
+	}
+	li a {
+  display: inline-block;
+  color: #25282B;
+  text-align: left;
+	margin-left: 145px;
+  padding: 14px ;
+  text-decoration: none;
+	}
+	.active {
+  background-color: #2148C0;
+	}
+
+</style>
+<img src = "img/ok1.png" style="width:125px;height: 125px;  margin-left: 120px; padding-bottom: 0px;">
+<ul>
+	<li><a href="Admin-Profile.html">Your Profile</a></li>
+	<li><a href="Admin.html">Appointments</a></li>
+	<li><a href="Admin-DoctorV.html">Doctors</a></li>
+	<li><a href="Admin-PatientV.html">Patients</a></li>
+    <li><a href="Admin-AdminV.html">Admins</a></li>
+	<li><a href="Logout.html">Logout</a></li>
+</ul>
+</head>
+<body style="background-color: #F6F8FB;">
+	<section class="main-content">
+		<div class="container"align="center">
+			<h1 style ="font-size:40px; margin-right: 880px; padding bottom: 2000px;">All Admins</h1>
+			<br>
+			<br>
+			<button name = "CreateAdmin" value="Create a Admin" id="CreateAdmin" onclick="CreateAdmin()">
+				Add Admin</button>
+			<table class="table" style="background-color:#FAFAFA;width:80% " align="center" border="0">
+
+
+				<thead style="text-align: left">
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>DOB</th>
+						<th>Gender</th>
+                        <th>Address</th>
+						<th>Manage Admins</th>
+					</tr>
+				</thead>
+				<tbody id = "appData">
+					<tr style="background-color:#fff;color:#52575C;">
+						<td> No Admins Found.
+				
+								
+						</td>
+						<td>
+							<h5 class="email"></h5>
+						</td>
+						<td>
+							<h5></h5>
+						</td>
+						<td>
+							<h5 class="mb-0"></h5>
+						</td>
+						<td>
+							<h5 class="mb-0"></h5>
+						</td>
+						<td>
+							<h5 class="mb-0"></h5>
+						</td>
+						<td>
+							
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</section>
+</body>
+</html>

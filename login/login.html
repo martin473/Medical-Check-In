@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script defer src="login-page.js"></script>
+</head>
+<img src = "OK.png" style="width:200px;height: 200px;">
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">HOSPITAL</h1>
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+
+    <form id="login-form" onsubmit="return false">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <div>
+        <label for="AT">ACCOUNT TYPE:</label>
+        <select name="table" style="font-size:14px;">
+          <option value="admin">ADMIN</option>
+          <option value="doctor">DOCTOR</option>
+          <option value="patient">PATIENT</option>
+        </select>
+      </div>
+      <div>
+      <p></p>
+      <input type="submit" value="LOGIN" id="login-form-submit">
+      <p></p>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1" id="login-error-msg2">
+        If you have trouble logging in,
+        please contact the hospital at 123-456-7890.
+      </div>
+
+    </form>
+  </main>
+</body>
+
+</html>

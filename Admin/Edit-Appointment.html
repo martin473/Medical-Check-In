@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>User Table UI Design</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css">
+	<link rel="stylesheet">
+	<script src="../jquery-3.6.0.min.js"></script>
+    <script defer src="editappointment.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+	ul {
+		list-style-type: none; width: 100%;
+
+	  margin-left: 0px;
+	  padding: 0;
+		overflow: auto;
+	  background-color: #F6F8FB
+
+	}
+	li {float: left;
+	}
+	li a {
+  display: inline-block;
+  color: #25282B;
+  text-align: left;
+	margin-left: 145px;
+  padding: 14px ;
+  text-decoration: none;
+	}
+	.active {
+  background-color: #2148C0;
+	}
+  .floatleft{
+      float: left;
+      margin: 30px;
+
+  }
+  .fix{
+      margin-left: 130px;
+  }
+</style>
+<img src = "img/ok1.png" style="width:125px;height: 125px;  margin-left: 120px; padding-bottom: 0px;">
+<ul>
+	<li><a href="Admin-Profile.html">Your Profile</a></li>
+	<li><a href="Admin.html">Appointments</a></li>
+	<li><a href="Admin-DoctorV.html">Doctors</a></li>
+	<li><a href="Admin-PatientV.html">Patients</a></li>
+	<li><a href="Admin-AdminV.html">Admins</a></li>
+	<li><a href="Logout.html">Logout</a></li>
+</ul>
+</head>
+<body style="background-color: #F6F8FB;">
+	<section class="main-admin-profile">
+		<div class="container">
+			<h1 style ="font-size:40px; text-align: center; padding bottom: 2000px;">Edit Appointment</h1>
+			
+            <div style="text-align: center;" id="Message"></div>
+			
+
+			
+<table cellspacing="0" cellpadding="15" style="width:70%" align="center" >
+    <tr>
+    <td style="width:60%">PATIENT NAME<br><select onchange="GetPatient()" disabled name="patientname" id="patientname"></select></td>
+    <td style="width:60%">DOCTOR NAME<br><select onchange="GetDoctor()"  name="doctorname" id="doctorname"></select></td>
+	</tr>
+<tr style="clear:both" class="fix">
+    
+    <td >DOB<br><input id="DOB" type="date" disabled name="DOB"></td>
+    <td >GENDER<br><input id="GENDER" type="text" disabled name="GENDER"></td>
+    
+</tr>
+
+<tr style="clear:both" class="fix">
+    
+    <td >MEDICATION HISTORY<br><input id="MEDICATIONHISTORY" type="text" disabled name="MEDICATIONHISTORY"></div>
+    <td >APPOINTMENT NOTES<br><input id="STATUS" type="text" disabled name="STATUS"></div>
+</tr>
+<tr style="clear:both" class="fix">
+    
+    <td >CONDITIONS<br><input id="CONDITIONS" type="text" disabled name="CONDITIONS"></td>
+    <td >CURRENT MEDICATION<br><input id="MEDICATION" type="text" disabled name="MEDICATION"></td>
+</tr>
+
+<tr style="clear:both" class="fix">
+    
+    <td>VISIT TIME<br><input id="VISITTIME" required type="time" name="VISITTIME"></td>
+    <td >VISIT DATE<br><input id="DATE" required type="date" name="DATE"></td>
+    
+</tr>
+<tr style="clear:both" class="fix">
+    
+    <td><input type="submit" name= "Submit" value="SUBMIT" onclick="EditAppointment()"></td>
+    
+</tr>
+
+	</table>
+	</section>
+</body>
+</html>
